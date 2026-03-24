@@ -11,6 +11,3 @@
 - 📊 Relatórios automáticos
 
 ## 🎮 USAR
-```bash
-npm install
-node index.js
