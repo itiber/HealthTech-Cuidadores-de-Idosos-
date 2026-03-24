@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+     "start": "node src/index.js",
+    "demo": "node src/utils/carregarDemo.js",
+    "clean": "node src/utils/limparDuplicatas.js",
+    "dev": "nodemon src/index.js"
+  }
+  
+  }
   "repository": {
     "type": "git",
     "url": "git+https://github.com/itiber/HealthTech-Cuidadores-de-Idosos-.git"

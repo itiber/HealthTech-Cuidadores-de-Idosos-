@@ -1,13 +1,10 @@
--- 🚀 DADOS FICTÍCIOS HealthTech - Demo Real
--- Execute: sqlite3 healthtech.db < demo.sql
-
--- 👤 3 PACIENTES REAIS
+-- 3 PACIENTES REAIS
 INSERT INTO pacientes (nome, data_nascimento, endereco, telefone, responsavel, telefone_responsavel) VALUES
 ('Maria Silva', '1945-03-12', 'Rua das Flores 123', '1198888-9999', 'Ana Silva', '1197777-8888'),
 ('João Santos', '1950-07-25', 'Av Paulista 456', '1196666-7777', 'Maria Santos', '1195555-6666'),
 ('Antônio Costa', '1938-11-08', 'Rua Central 789', '1194444-5555', 'Filho', '1193333-4444');
 
--- 📅 ROTINAS SEMANAIS
+-- ROTINAS SEMANAIS
 INSERT INTO rotinas (paciente_id, dia_semana, horario, atividade, descricao) VALUES
 (1, 'segunda', '08:00', 'Medicação', 'Comprimido azul 1x/dia + café'),
 (1, 'segunda', '14:00', 'Fisioterapia', 'Exercícios equilíbrio 30min'),
@@ -16,7 +13,7 @@ INSERT INTO rotinas (paciente_id, dia_semana, horario, atividade, descricao) VAL
 (2, 'quarta', '16:00', 'Consulta', 'Oftalmologista mensal'),
 (3, 'sexta', '10:00', 'Higiene', 'Banho completo + talco');
 
--- 📝 12 ATENDIMENTOS (2 semanas)
+-- 12 ATENDIMENTOS (2 semanas)
 INSERT INTO atendimentos (paciente_id, data_atendimento, hora, atividades_realizadas, observacoes, estado_saude) VALUES
 -- Maria Silva (6 atendimentos)
 (1, '2024-03-15', '08:15', 'Medicação + fisioterapia', 'Paciente animada, fez todos exercícios', 'bom'),
@@ -35,8 +32,3 @@ INSERT INTO atendimentos (paciente_id, data_atendimento, hora, atividades_realiz
 -- Antônio Costa (2 atendimentos)
 (3, '2024-03-22', '10:15', 'Banho completo', 'Ótima higiene, talco aplicado', 'bom'),
 (3, '2024-03-23', '10:20', 'Higiene', 'Recusou banho hoje', 'regular');
-
--- 📊 RESUMO QUE VAI APARECER:
--- Maria: 6 atendimentos (4 bom, 1 regular, 1 ruim)
--- João: 4 atendimentos (2 bom, 2 regular)  
--- Antônio: 2 atendimentos (1 bom, 1 regular)

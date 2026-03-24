@@ -19,7 +19,7 @@ async function main() {
         console.log('4️ Relatórios');
         console.log('0️ Sair');
         
-        const op = readline.question('Opção: ');
+        const op = readline.question('Opcao: ');
         
         try {
             switch(op) {
@@ -28,7 +28,7 @@ async function main() {
                 case '3': await atendimentos(); break;
                 case '4': await relatorios(); break;
                 case '0': process.exit();
-                default: console.log('Opção inválida!');
+                default: console.log('Opcao inválida!');
             }
         } catch(e) {
             console.log('Erro:', e.message);
