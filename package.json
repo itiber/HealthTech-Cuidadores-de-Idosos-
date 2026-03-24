@@ -1,0 +1,25 @@
+{
+  "name": "healthtech-cuidadores-de-idosos-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itiber/HealthTech-Cuidadores-de-Idosos-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itiber/HealthTech-Cuidadores-de-Idosos-/issues"
+  },
+  "homepage": "https://github.com/itiber/HealthTech-Cuidadores-de-Idosos-#readme",
+  "dependencies": {
+    "moment": "^2.30.1",
+    "readline-sync": "^1.4.10",
+    "sqlite3": "^6.0.1"
+  }
+}
