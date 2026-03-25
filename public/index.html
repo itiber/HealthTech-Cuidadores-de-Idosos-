@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HealthTech Dashboard</title>
+    <style>
+        body { font-family: Arial; max-width: 800px; margin: 50px auto; background: #f5f5f5; }
+        .card { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        select, button { padding: 10px; margin: 5px; }
+        #pacientes div { background: #e3f2fd; padding: 10px; margin: 5px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>HealthTech - Cuidadora</h1>
+        <button onclick="loadData()">Atualizar</button>
+        <div id="pacientes"></div>
+    </div>
+    
+    <div class="card">
+        <h2>Relatorio</h2>
+        <select id="patientSelect" onchange="loadReport()">
+            <option>Escolha paciente</option>
+        </select>
+        <div id="report"></div>
+    </div>
+
+    <script>
+        async function api(path) {
+            const res = await fetch('http://localhost:3001' + path);
+            return await res.json();
+        }
+        
+        async function loadData() {
+            const pacientes = await api('/api/pacientes');
+            document.getElementById('pacientes').innerHTML = 
+                pacientes.map(p => `<div>ID:${p.id} ${p.nome} - ${p.telefone}</div>`).join('');
+            
+            const select = document.getElementById('patientSelect');
+            select.innerHTML = '<option>Escolha</option>' + 
+                pacientes.map(p => `<option value="${p.id}">${p.nome}</option>`).join('');
+        }
+        
+        async function loadReport() {
+            const id = document.getElementById('patientSelect').value;
+            if (!id) return;
+            
+            const report = await api(`/api/relatorio/${id}`);
+            document.getElementById('report').innerHTML = `
+                <pre>Total: ${report.total}
+Estados: ${JSON.stringify(report.resumo.estados_saude)}
+                </pre>`;
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>

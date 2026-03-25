@@ -117,5 +117,37 @@ async function relatorios() {
     const rel = await as.relatorioPaciente(id);
     console.log('\n RELATÓRIO:', JSON.stringify(rel, null, 2));
 }
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+app.use(express.static(path.join(__dirname, '../public')));
+
+app.get('/api/pacientes', async (req, res) => {
+    try {
+        const pacientes = await ps.listar();
+        res.json(pacientes);
+    } catch(e) {
+        res.status(500).json({error: e.message});
+    }
+});
+
+app.get('/api/relatorio/:id', async (req, res) => {
+    try {
+        const relatorio = await as.relatorioPaciente(req.params.id);
+        res.json(relatorio);
+    } catch(e) {
+        res.status(500).json({error: e.message});
+    }
+});
+
+app.listen(3001, () => {
+    console.log('\n=== DASHBOARD DISPONIVEL ===');
+    console.log('Acesse: http://localhost:3001');
+    console.log('CLI backend continua funcionando!');
+});
 
 main();
